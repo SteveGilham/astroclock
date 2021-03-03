@@ -1,0 +1,43 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>HTML5 Canvas + Javascript = Astroclock</title>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+
+<body>
+<article>
+<header><h1>Astroclock HTML5 Canvas Applet</h1></header>
+<p>This applet uses geolocation to get latitude and longitude data for astronomical calculations; 
+if you select "Don't Allow" on Firefox, or otherwise dismiss a browser pop-up without making a selection,
+it will start after a few seconds timeout
+has elapsed, just as if there were a network outage while looking for the location data.  The location can
+be altered at any time with the slider controls.</p>
+<div id="container" height="400" width="800">
+<!--[if !IE]> -->
+<canvas id="display" height="400" width="800">Sorry, you need a browser that supports canvas or SVG (Opera 9, Firefox 1.5, etc&#8230;)</canvas>
+<!-- <![endif]-->
+<!--[if gt IE 8]> 
+<canvas id="display" height="400" width="800">Sorry, you need a browser that supports canvas or SVG (Opera 9, Firefox 1.5, etc&#8230;)</canvas>
+<![endif]-->
+<div class="ie"><!--[if lt IE 9]>
+<p>Sorry, you need a better browser.  Even upgrading your IE would help.</canvas>
+<![endif]--></div>
+<p>
+<label id="lat_label" for="lat">Latitude</label><br />
+<input name="lat" id="lat" type="range" min="-90" max="90" step="1" title="Lat: -90 to 90" value="52" style="width: 100%;" /><br />
+<label id="long_label" for="long">Longitude</label><br />
+<input name="long" id="long" type="range" min="-180" max="180" step="1" title="Range: -180 to 180" value="0" style="width: 100%;" />
+</p></div>
+<p>Planetary positions, moon phases, etc. have not been rigorously tested away from roughly zero longitude; but at least BST gives me some confidence in timezones.  Check with <a href="http://www.fourmilab.ch/cgi-bin/Yoursky">the "Your Sky" map</a> to confirm.  There are tooltips for the planets, to help identify which speck is which.</p>
+</article>
+
+<script type="text/javascript" src="./script/astroclock.js"></script>
+<script type="text/javascript" src="./script/astroclock_events.js"></script>
+</body>
+</html>
+
