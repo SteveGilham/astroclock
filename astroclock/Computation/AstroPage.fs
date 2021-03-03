@@ -138,8 +138,12 @@ type AstroPage(self:System.Windows.Controls.Page) = class
 
     member this.GetParam<'T> (name:string) (transform:(string->'T)) (fallback:'T) : ('T * bool)  =
        try
-          let value = this.query.[name]
-          ((transform value), true)
+          this.query
+          |> Option.ofObj
+          |> Option.map(fun q ->
+            let value = q.[name]
+            ((transform value), true))
+          |>Option.defaultValue (fallback, false)
        with _ ->
           (fallback, false)
 
@@ -224,11 +228,3 @@ type AstroPage(self:System.Windows.Controls.Page) = class
        this.UpdateTick ()
 
 end
-
-//type MyApp = class
-//    inherit Application
-
-//    new () as this = {} then
-//        this.Startup.Add(fun _ ->  this.RootVisual <- new Page())
-
-//end
