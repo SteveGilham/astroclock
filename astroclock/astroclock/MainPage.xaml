@@ -29,7 +29,7 @@
             <ToolTip Content="Mercury &#x263f;"></ToolTip>
           </ToolTipService.ToolTip>
           <Path.Data>
-            <EllipseGeometry Center="150,150" RadiusX="0.6" RadiusY="0.6" />
+            <EllipseGeometry Center="150,150" RadiusX="2" RadiusY="2" />
           </Path.Data>
         </Path>
         <Path Name="venus" Fill = "White" StrokeThickness = "1" Stroke="White">
@@ -37,7 +37,7 @@
             <ToolTip Content="Venus &#x2640;"></ToolTip>
           </ToolTipService.ToolTip>
           <Path.Data>
-            <EllipseGeometry Center="100,100" RadiusX="1.0" RadiusY="1.0" />
+            <EllipseGeometry Center="100,100" RadiusX="3" RadiusY="3" />
           </Path.Data>
         </Path>
         <Path Name="mars" Fill = "Red" StrokeThickness = "1" Stroke="Red">
@@ -45,7 +45,7 @@
             <ToolTip Content="Mars &#x2642;"></ToolTip>
           </ToolTipService.ToolTip>
           <Path.Data>
-            <EllipseGeometry Center="90,90" RadiusX="0.5" RadiusY="0.5" />
+            <EllipseGeometry Center="90,90" RadiusX="2" RadiusY="2" />
           </Path.Data>
         </Path>
         <Path Name="jupiter" Fill = "Silver" StrokeThickness = "1" Stroke="Silver">
@@ -53,7 +53,7 @@
             <ToolTip Content="Jupiter  &#x2643;"></ToolTip>
           </ToolTipService.ToolTip>
           <Path.Data>
-            <EllipseGeometry Center="80,80" RadiusX="1.0" RadiusY="1.0" />
+            <EllipseGeometry Center="80,80" RadiusX="3" RadiusY="3" />
           </Path.Data>
         </Path>
         <Path Name="saturn" Fill = "Yellow" StrokeThickness = "1" Stroke="Yellow">
@@ -61,7 +61,7 @@
             <ToolTip Content="Saturn &#x2644;"></ToolTip>
           </ToolTipService.ToolTip>
           <Path.Data>
-            <EllipseGeometry Center="70,70" RadiusX="2.0" RadiusY="0.5" />
+            <EllipseGeometry Center="70,70" RadiusX="4" RadiusY="2" />
           </Path.Data>
         </Path>
         <Path Name="moon" Fill = "Silver" StrokeThickness = "0" Stroke="Silver">
