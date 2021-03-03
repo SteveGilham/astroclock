@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{d24d2e47-4e11-4d3a-8fbe-eab1ddb7a2a4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>astroclock.fs</RootNamespace>
+    <AssemblyName>astroclock-fs</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Name>astroclock.fs</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Computation.fs" />
+    <Compile Include="Module1.fs" />
+    <Compile Include="AssemblyInfo.fs" />
+    <None Include="Script.fsx" />
+    <None Include="Timestamp.fsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <Name>System</Name>
+      <AssemblyName>system.dll</AssemblyName>
+      <HintPath>..\..\..\..\..\Program Files\Microsoft SDKs\Silverlight\v2.0\Reference Assemblies\system.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <Name>System.Core</Name>
+      <AssemblyName>System.Core.dll</AssemblyName>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Silverlight\v2.0\Reference Assemblies\System.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <Name>System.Windows</Name>
+      <AssemblyName>System.Windows.dll</AssemblyName>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Silverlight\v2.0\Reference Assemblies\System.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Browser, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <Name>System.Windows.Browser</Name>
+      <AssemblyName>System.Windows.Browser.dll</AssemblyName>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Silverlight\v2.0\Reference Assemblies\System.Windows.Browser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\FSharp\1.0\Microsoft.FSharp.Targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+  <PropertyGroup>
+    <PostBuildEvent>cd $(ProjectDir)
+copy /y *.fs astroclock
+copy /y *.fsproj astroclock
+copy /y *.fsx astroclock
+copy /y $(OutDir)$(TargetFileName) astroclock
+"C:\Program Files\IronPython 2.0\Silverlight\bin\chiron.exe" /d:astroclock /z:astroclock.fs.xap</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>cd ..\..
+"C:\Program Files\FSharp-1.9.6.2\bin\fsi.exe" --exec Timestamp.fsx
+</PreBuildEvent>
+  </PropertyGroup>
+</Project>

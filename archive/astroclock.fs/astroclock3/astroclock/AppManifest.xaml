@@ -1,0 +1,10 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+            RuntimeVersion="3.0.40818.0" 
+            EntryPointAssembly="astroclock-fs" 
+            EntryPointType="astroclock.fs.MyApp">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="astroclock-fs" Source="astroclock-fs.dll" />
+    <AssemblyPart x:Name="FSharp.Core" Source="FSharp.Core.dll" />
+  </Deployment.Parts>
+</Deployment>
