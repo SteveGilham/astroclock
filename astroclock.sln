@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astroclock", "astroclock\astroclock\astroclock.csproj", "{0EE1AD8D-7C83-45D7-A8E3-52CDCBEBF716}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astroclock.Simulator", "astroclock\astroclock.Simulator\astroclock.Simulator.csproj", "{3573465B-8CC0-4865-B141-700516198326}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astroclock.Browser", "astroclock\astroclock.Browser\astroclock.Browser.csproj", "{9E699623-C9F1-455E-B264-87C077716A08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EE1AD8D-7C83-45D7-A8E3-52CDCBEBF716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE1AD8D-7C83-45D7-A8E3-52CDCBEBF716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE1AD8D-7C83-45D7-A8E3-52CDCBEBF716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE1AD8D-7C83-45D7-A8E3-52CDCBEBF716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3573465B-8CC0-4865-B141-700516198326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3573465B-8CC0-4865-B141-700516198326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3573465B-8CC0-4865-B141-700516198326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3573465B-8CC0-4865-B141-700516198326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E699623-C9F1-455E-B264-87C077716A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E699623-C9F1-455E-B264-87C077716A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E699623-C9F1-455E-B264-87C077716A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E699623-C9F1-455E-B264-87C077716A08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A785C842-1843-4A21-B406-1C7D5AC7E300}
+	EndGlobalSection
+EndGlobal
