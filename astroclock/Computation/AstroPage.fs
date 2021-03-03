@@ -11,7 +11,7 @@ open Computation
 
 type AstroPage(self:System.Windows.Controls.Page) = class
 
-    member val page = String.Empty with get, set
+    //member val page = String.Empty with get, set
     member val query : System.Collections.Generic.IDictionary<string,string> = null with get, set
     member val animate = new BackgroundWorker() with get
     member val culture : CultureInfo = null with get, set
@@ -57,9 +57,8 @@ type AstroPage(self:System.Windows.Controls.Page) = class
 
     member this.MoveHand name angle =
       let line = self.FindName(name) :?> Line
-      let tg = line.RenderTransform :?> TransformGroup
-      let rotate = tg.Children.[0] :?> RotateTransform
-      rotate.Angle <- angle
+      let rotate = line.RenderTransform :?> CompositeTransform
+      rotate.Rotation <- angle
 
     member this.SetText name value =
       let block = self.FindName(name) :?> TextBlock
@@ -165,9 +164,10 @@ type AstroPage(self:System.Windows.Controls.Page) = class
       this.ToggleUI (not configured)
 
     member this.UpdateURL () =
-      let hyperlink = self.FindName("hyperlink") :?> HyperlinkButton
-      hyperlink.NavigateUri <- System.Uri(String.Format("{0}?lat={1}&long={2}",
-                                           this.page, this.Latitude, this.Longitude))
+      ()
+      //let hyperlink = self.FindName("hyperlink") :?> HyperlinkButton
+      //hyperlink.NavigateUri <- System.Uri(String.Format("{0}?lat={1}&long={2}",
+      //                                     this.page, this.Latitude, this.Longitude))
 
     member this.LatValueChanged() =
       let lat = self.FindName("slider1") :?> Slider
