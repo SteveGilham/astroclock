@@ -103,8 +103,8 @@
      Stroke="Black" />
         <Line
       Name="t1"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -113,8 +113,8 @@
         </Line>
         <Line
       Name="t2"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -123,14 +123,18 @@
         </Line>
         <Line
       Name="t3"
-      Y1="120" X1="4"
-      Y2="120" X2="20"
+      X1="0" Y1="-116"
+      X2="0" Y2="-100"
       Stroke="White"
-      StrokeThickness="3" />
+      StrokeThickness="3">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="90" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
         <Line
       Name="t4"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -139,8 +143,8 @@
         </Line>
         <Line
       Name="t5"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -155,8 +159,8 @@
       StrokeThickness="3" />
         <Line
       Name="t7"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -165,8 +169,8 @@
         </Line>
         <Line
       Name="t8"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -175,14 +179,18 @@
         </Line>
         <Line
       Name="t9"
-      Y1="120" X1="236"
-      Y2="120" X2="220"
+      X1="0" Y1="-116"
+      X2="0" Y2="-100"
       Stroke="White"
-      StrokeThickness="3" />
+      StrokeThickness="3">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="270" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
         <Line
       Name="t10"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -191,8 +199,8 @@
         </Line>
         <Line
       Name="t11"
-      X1="120" Y1="12"
-      X2="120" Y2="20"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
       Stroke="White"
       StrokeThickness="2">
           <Line.RenderTransform>
@@ -207,8 +215,8 @@
       StrokeThickness="3" />
         <Line
       Name="hour"
-      X1="120" Y1="120"
-      X2="120" Y2="60"
+      X1="0" Y1="0"
+      X2="0" Y2="-60"
       Stroke="White"
       StrokeThickness="4">
           <Line.RenderTransform>
@@ -217,8 +225,8 @@
         </Line>
         <Line
       Name="minute"
-      X1="120" Y1="120"
-      X2="120" Y2="30"
+      X1="0" Y1="0"
+      X2="0" Y2="-90"
       Stroke="White"
       StrokeThickness="3">
           <Line.RenderTransform>
@@ -227,8 +235,8 @@
         </Line>
         <Line
       Name="second"
-      X1="120" Y1="120"
-      X2="120" Y2="35"
+      X1="0" Y1="0"
+      X2="0" Y2="-85"
       Stroke="White"
       StrokeThickness="1">
           <Line.RenderTransform>
