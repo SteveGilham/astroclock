@@ -55,3 +55,5 @@ packages/
 *.suo
 .fake
 .ionide
+astroclock/astroclock.Browser/wwwroot/
+astroclock/astroclock.Simulator/astroclock.Simulator.csproj.user
