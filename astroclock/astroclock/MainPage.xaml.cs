@@ -9,11 +9,15 @@ namespace astroclock
 {
   public partial class MainPage : Page
   {
+    private object carry;
+
     public MainPage()
     {
       this.InitializeComponent();
 
-      // Enter construction logic here...
+      var temp = new Astroclock.AstroPage(this);
+      temp.Begin();
+      carry = temp;
     }
   }
 }

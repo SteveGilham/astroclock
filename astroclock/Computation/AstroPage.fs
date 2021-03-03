@@ -9,25 +9,24 @@ open System.Windows.Shapes
 
 open Computation
 
-type AstroPage = class
-    inherit System.Windows.Controls.Page
+type AstroPage(self:System.Windows.Controls.Page) = class
 
-    val mutable page : string
-    val mutable query : System.Collections.Generic.IDictionary<string,string>
-    val animate : BackgroundWorker
-    val mutable culture : CultureInfo
-    val mutable hms : string
-    val mutable date : string
-    val mutable sunup : string
-    val mutable sundown : string
-    val mutable latitude : float
-    val mutable longitude : float
-    val compute : BackgroundWorker
-    val mutable sun : Plot
-    val mutable planets : list<Plot>
-    val mutable moon : Plot
-    val planetNames : list<string>
-    val mutable phase : float
+    member val page = String.Empty with get, set
+    member val query : System.Collections.Generic.IDictionary<string,string> = null with get, set
+    member val animate = new BackgroundWorker() with get
+    member val culture : CultureInfo = null with get, set
+    member val hms = "HH:mm:ss" with get, set
+    member val date = "d-MMM-yyyy" with get, set
+    member val sunup = String.Empty with get, set
+    member val sundown = String.Empty with get, set
+    member val latitude = 52.0 with get, set
+    member val longitude = 0.0 with get, set
+    member val compute  = new BackgroundWorker() with get
+    member val sun = {X=60.0; Y=60.0; Visible=false;} with get, set
+    member val planets : list<Plot> = [] with get, set
+    member val moon  = {X=60.0; Y=60.0; Visible=true;} with get, set
+    member val planetNames = ["mercury"; "venus"; "mars"; "jupiter"; "saturn"] with get
+    member val phase = 0.5 with get, set
 
     member this.EverySecond() =
         System.Threading.Thread.Sleep(1000)
@@ -57,23 +56,23 @@ type AstroPage = class
         this.EveryMinute()
 
     member this.MoveHand name angle =
-      let line = this.FindName(name) :?> Line
+      let line = self.FindName(name) :?> Line
       let tg = line.RenderTransform :?> TransformGroup
       let rotate = tg.Children.[0] :?> RotateTransform
       rotate.Angle <- angle
 
     member this.SetText name value =
-      let block = this.FindName(name) :?> TextBlock
+      let block = self.FindName(name) :?> TextBlock
       block.Text <- value
       block
 
     member this.SetPlace name where =
-      let item = this.FindName(name) :?> Path
+      let item = self.FindName(name) :?> Path
       (item.Data :?> EllipseGeometry).Center <- Point(where.X, where.Y)
       item.Visibility <- select where.Visible Visibility.Visible Visibility.Collapsed
 
     member this.DrawMoon () =
-      let item = this.FindName("moon") :?> Path
+      let item = self.FindName("moon") :?> Path
       let where = this.moon
       let figure = (item.Data :?> PathGeometry).Figures.[0]
       let rh = (figure.Segments.[0] :?> ArcSegment)
@@ -145,8 +144,8 @@ type AstroPage = class
           (fallback, false)
 
     member this.ToggleUI state =
-      let expander = this.FindName("expander1") :?> UIElement
-      let button = this.FindName("button1") :?> UIElement
+      let expander = self.FindName("expander1") :?> UIElement
+      let button = self.FindName("button1") :?> UIElement
       match state with
       | true ->
         expander.Visibility <- Visibility.Collapsed
@@ -157,55 +156,55 @@ type AstroPage = class
       ()
 
     member this.Button1Click() =
-      let button = this.FindName("button1") :?> UIElement
+      let button = self.FindName("button1") :?> UIElement
       let configured = (button.Visibility = Visibility.Visible)
       this.ToggleUI (not configured)
 
     member this.UpdateURL () =
-      let hyperlink = this.FindName("hyperlink") :?> HyperlinkButton
+      let hyperlink = self.FindName("hyperlink") :?> HyperlinkButton
       hyperlink.NavigateUri <- System.Uri(String.Format("{0}?lat={1}&long={2}",
                                            this.page, this.Latitude, this.Longitude))
 
     member this.LatValueChanged() =
-      let lat = this.FindName("slider1") :?> Slider
+      let lat = self.FindName("slider1") :?> Slider
       this.Latitude <- lat.Value
       this.SetText "label1" this.LatitudeCaption |> ignore
       this.UpdateSky ()
       this.UpdateURL ()
 
     member this.LongValueChanged() =
-      let lat = this.FindName("slider2") :?> Slider
+      let lat = self.FindName("slider2") :?> Slider
       this.Longitude <- lat.Value
       this.SetText "label2" this.LongitudeCaption |> ignore
       this.UpdateSky ()
       this.UpdateURL ()
 
     member this.Begin() =
-       this.XamlSourcePath <- @"OpenSilverApplication1\astroclock.xaml"
-       this.query <- System.Windows.Browser.HtmlPage.Document.QueryString
+       //this.XamlSourcePath <- @"OpenSilverApplication1\astroclock.xaml"
+       //self.query <- System.Windows.Browser.HtmlPage.Document.QueryString
 
-       this.page <- System.Windows.Browser.HtmlPage.Document.DocumentUri.GetComponents(
-                          System.UriComponents.SchemeAndServer ||| System.UriComponents.Path,
-                          System.UriFormat.Unescaped).Split( [|'?'|]).[0]
+       //self.page <- System.Windows.Browser.HtmlPage.Document.DocumentUri.GetComponents(
+       //                   System.UriComponents.SchemeAndServer ||| System.UriComponents.Path,
+       //                   System.UriFormat.Unescaped).Split( [|'?'|]).[0]
 
        (this.SetText "label1" this.LatitudeCaption).DataContext <- this.LatitudeCaption
        (this.SetText "label2" this.LongitudeCaption).DataContext <- this.LongitudeCaption
 
-       (this.FindName("button1") :?> Button).Click.Add(fun _ -> this.Button1Click())
+       (self.FindName("button1") :?> Button).Click.Add(fun _ -> this.Button1Click())
 
        this.culture <- fst (this.GetParam "locale" (fun x -> new CultureInfo(x)) CultureInfo.CurrentCulture)
        this.hms <- fst ( this.GetParam "hms" id this.culture.DateTimeFormat.LongTimePattern  ) // HH:mm:ss
        this.date <- fst ( this.GetParam "date" id this.culture.DateTimeFormat.ShortDatePattern ) // d-MMM-yyyy
 
-       (this.FindName("slider1") :?> Slider).ValueChanged.Add(fun _ -> this.LatValueChanged())
+       (self.FindName("slider1") :?> Slider).ValueChanged.Add(fun _ -> this.LatValueChanged())
        let islat = this.GetParam "lat" (fun x -> Double.Parse(x)) this.latitude
        this.latitude <- fst(islat)
-       (this.FindName("slider1") :?> Slider).Value <- this.latitude
+       (self.FindName("slider1") :?> Slider).Value <- this.latitude
 
-       (this.FindName("slider2") :?> Slider).ValueChanged.Add(fun _ -> this.LongValueChanged())
+       (self.FindName("slider2") :?> Slider).ValueChanged.Add(fun _ -> this.LongValueChanged())
        let islong = this.GetParam "long" (fun x -> Double.Parse(x)) this.longitude
        this.longitude <- fst(islong)
-       (this.FindName("slider2") :?> Slider).Value <- this.longitude
+       (self.FindName("slider2") :?> Slider).Value <- this.longitude
 
        let version = System.Reflection.Assembly.GetExecutingAssembly().FullName.ToString()
        let bits = version.Split([|','|])
@@ -224,23 +223,6 @@ type AstroPage = class
        this.animate.RunWorkerAsync()
        this.UpdateTick ()
 
-    new () = {page = String.Empty;
-              query = null;
-              animate = new BackgroundWorker();
-              culture = null
-              hms = "HH:mm:ss";
-              date = "d-MMM-yyyy";
-              sunup = String.Empty;
-              sundown = String.Empty;
-              latitude = 52.0;
-              longitude = 0.0;
-              compute = new BackgroundWorker();
-              sun = {X=60.0; Y=60.0; Visible=false;}
-              planets = [];
-              moon = {X=60.0; Y=60.0; Visible=true;}
-              planetNames = ["mercury"; "venus"; "mars"; "jupiter"; "saturn"];
-              phase = 0.5
-              }
 end
 
 //type MyApp = class

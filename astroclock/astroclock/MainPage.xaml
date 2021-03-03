@@ -7,20 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-  <!-- native:HtmlPresenter xmlns:native="using:CSHTML5.Native.Html.Controls" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="native">
-    <header>
-      <h1>Astroclock HTML5 Canvas Applet</h1>
-    </header>
-    <p>
+  <Grid x:Name="LayoutRoot">
+    <TextBlock>
+      <Span FontWeight="Bold">Astroclock Blazor WASM Applet</Span>
+    </TextBlock>
+    <TextBlock TextWrapping="Wrap">
       This applet uses geolocation to get latitude and longitude data for astronomical calculations;
       if you select "Don't Allow" on Firefox, or otherwise dismiss a browser pop-up without making a selection,
       it will start after a few seconds timeout
       has elapsed, just as if there were a network outage while looking for the location data.  The location can
       be altered at any time with the slider controls.
-    </p>
-  </native:HtmlPresenter -->
+    </TextBlock>
 
-  <Grid x:Name="LayoutRoot">
     <TextBlock Height="28" Canvas.Top="0"  Name="legend" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="300" Text="" />
 
     <!--Grid.Background>
@@ -275,11 +273,8 @@
     </Canvas>
     <HyperlinkButton Height="28" HorizontalAlignment="Left" Margin="0,0,0,17" Name="hyperlink" VerticalAlignment="Bottom" Width="87" NavigateUri="astroclock.html" Content="Permalink" />
     <Button Height="23" HorizontalAlignment="Right" Margin="0,0,12,22" Name="button1" VerticalAlignment="Bottom" Width="75" Content="Configure" />
+    <TextBlock TextWrapping="Wrap">
+      Planetary positions, moon phases, etc. have not been rigorously tested away from roughly zero longitude; but at least BST gives me some confidence in timezones.  Check with <Hyperlink NavigateUri="http://www.fourmilab.ch/cgi-bin/Yoursky">the "Your Sky" map</Hyperlink> to confirm.  There are tooltips for the planets, to help identify which speck is which.
+    </TextBlock>
   </Grid>
-
-  <!-- native:HtmlPresenter xmlns:native="using:CSHTML5.Native.Html.Controls" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="native">
-    <p>
-      Planetary positions, moon phases, etc. have not been rigorously tested away from roughly zero longitude; but at least BST gives me some confidence in timezones.  Check with <a href="http://www.fourmilab.ch/cgi-bin/Yoursky">the "Your Sky" map</a> to confirm.  There are tooltips for the planets, to help identify which speck is which.
-    </p>
-  </native:HtmlPresenter -->
 </Page>
