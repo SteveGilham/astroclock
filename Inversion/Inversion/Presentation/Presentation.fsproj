@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Inversion\Inversion.csproj" />
     <PackageReference Include="OpenSilver" Version="1.0.0-alpha-007" />
   </ItemGroup>
 </Project>
