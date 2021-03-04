@@ -55,8 +55,8 @@ packages/
 *.suo
 .fake
 .ionide
-astroclock/astroclock.Browser/wwwroot/
-astroclock/astroclock.Simulator/astroclock.Simulator.csproj.user
+archive/astroclock.opensilver-first/astroclock.Browser/wwwroot/
+archive/astroclock.opensilver-first/astroclock.Simulator/astroclock.Simulator.csproj.user
 Inversion/Inversion/Inversion/Inversion.csproj.user
 Inversion/Inversion/Inversion.Browser/wwwroot/
 Inversion/Inversion/Inversion.Simulator/Inversion.Simulator.csproj.user
