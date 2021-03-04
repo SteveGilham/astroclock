@@ -9,7 +9,7 @@ open System.Windows.Threading
 
 open Computation
 
-type AstroPage() = class
+type AstroPage(dummy:int) = class
   inherit System.Windows.Controls.Page()
 
     member val page = String.Empty with get, set
@@ -237,19 +237,22 @@ type AstroPage() = class
        this.timer.add_Tick tick
        this.timer.Start()
 
+    new () as this = AstroPage(0) then
+      this.InitializeComponent()
 end
 
 type AstroApp = class
     inherit Application
 
-    new () as this = {} then
+    member this.InitializeComponent() =
         let prototype = Inversion.App()
         this.Resources <- prototype.Resources
-        let page = new AstroPage()
-        page.InitializeComponent()
-        Window.Current.Content <- page
 
-        this.Startup.Add(fun _ -> this.RootVisual <- page
-                                  page.Begin())
+    new () as this = {} then
+        this.InitializeComponent()
+        let page = new AstroPage()
+        Window.Current.Content <- page
+        this.RootVisual <- page
+        this.Startup.Add(fun _ -> page.Begin())
 
 end
