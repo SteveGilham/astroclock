@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 namespace Inversion
 {
-  public partial class MainPage : Page
+  public abstract partial class MainPage : Page
   {
     public MainPage()
     {

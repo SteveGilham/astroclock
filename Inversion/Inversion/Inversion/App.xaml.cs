@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Inversion
 {
-  public partial class App : Application
+  public abstract partial class App : Application
   {
     public App()
     {
