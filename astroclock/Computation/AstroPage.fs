@@ -13,7 +13,7 @@ type AstroPage(self:System.Windows.Controls.Page) = class
 
     member val page = String.Empty with get, set
     member val query : System.Collections.Generic.IDictionary<string,string> = null with get, set
-    member val animate = new BackgroundWorker() with get
+//    member val animate = new BackgroundWorker() with get
     member val culture : CultureInfo = null with get, set
     member val hms = "HH:mm:ss" with get, set
     member val date = "d-MMM-yyyy" with get, set
@@ -21,17 +21,17 @@ type AstroPage(self:System.Windows.Controls.Page) = class
     member val sundown = String.Empty with get, set
     member val latitude = 52.0 with get, set
     member val longitude = 0.0 with get, set
-    member val compute  = new BackgroundWorker() with get
+//    member val compute  = new BackgroundWorker() with get
     member val sun = {X=60.0; Y=60.0; Visible=false;} with get, set
     member val planets : list<Plot> = [] with get, set
     member val moon  = {X=60.0; Y=60.0; Visible=true;} with get, set
     member val planetNames = ["mercury"; "venus"; "mars"; "jupiter"; "saturn"] with get
     member val phase = 0.5 with get, set
 
-    member this.EverySecond() =
-        System.Threading.Thread.Sleep(1000)
-        this.animate.ReportProgress(0)
-        this.EverySecond()
+    //member this.EverySecond() =
+    //    System.Threading.Thread.Sleep(1000)
+    //    this.animate.ReportProgress(0)
+    //    this.EverySecond()
 
     member this.UpdateSky () =
       let display = {Latitude = this.latitude * 1.0<deg>;
@@ -218,14 +218,14 @@ type AstroPage(self:System.Windows.Controls.Page) = class
 
        this.ToggleUI ( snd(islat) && snd(islong) )
 
-       this.compute.DoWork.Add(fun _ -> this.EveryMinute())
-       this.compute.RunWorkerAsync()
+       //this.compute.DoWork.Add(fun _ -> this.EveryMinute())
+       //this.compute.RunWorkerAsync()
        this.UpdateSky ()
 
-       this.animate.WorkerReportsProgress <- true
-       this.animate.DoWork.Add(fun _ -> this.EverySecond())
-       this.animate.ProgressChanged.Add(fun _ -> this.UpdateTick())
-       this.animate.RunWorkerAsync()
+       //this.animate.WorkerReportsProgress <- true
+       //this.animate.DoWork.Add(fun _ -> this.EverySecond())
+       //this.animate.ProgressChanged.Add(fun _ -> this.UpdateTick())
+       //this.animate.RunWorkerAsync()
        this.UpdateTick ()
 
 end
