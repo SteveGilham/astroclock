@@ -57,6 +57,6 @@ packages/
 .ionide
 archive/astroclock.opensilver-first/astroclock.Browser/wwwroot/
 archive/astroclock.opensilver-first/astroclock.Simulator/astroclock.Simulator.csproj.user
-Inversion/Inversion/Inversion/Inversion.csproj.user
-Inversion/Inversion/Inversion.Browser/wwwroot/
-Inversion/Inversion/Inversion.Simulator/Inversion.Simulator.csproj.user
+astroclock.opensilver/Inversion/Inversion/Inversion.csproj.user
+astroclock.opensilver/Inversion/Inversion.Browser/wwwroot/
+astroclock.opensilver/Inversion/Inversion.Simulator/Inversion.Simulator.csproj.user
