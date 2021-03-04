@@ -9,8 +9,8 @@ open System.Windows.Threading
 
 open Computation
 
-type AstroPage(dummy:int) = class
-  inherit System.Windows.Controls.Page()
+type AstroPage() = class
+  inherit Inversion.MainPage()
 
     member val page = String.Empty with get, set
     member val query : System.Collections.Generic.IDictionary<string,string> = null with get, set
@@ -174,26 +174,6 @@ type AstroPage(dummy:int) = class
       this.UpdateSky ()
       this.UpdateURL ()
 
-    member this.InitializeComponent() =
-       // Wanted -- XAML to UIElement so we can put something like
-       // self.Content <- LoadXAMLFromResource(...)
-       // and then de-layer, like LoadComponent did
-       let prototype = Inversion.MainPage()
-       prototype.InitializeComponent()
-       this.Content <- prototype.Content
-       let hack = typeof<UserControl>.GetField("_nameScopeDictionary",
-                                                System.Reflection.BindingFlags.Instance |||
-                                                System.Reflection.BindingFlags.NonPublic)
-
-       hack
-       |> Option.ofObj
-       |> Option.map ((fun f -> f.GetValue prototype) >> Option.ofObj)
-       |> Option.flatten
-       |> Option.map(fun o -> o :?> System.Collections.Generic.Dictionary<string, Object>)
-       |> Option.iter (fun dict ->
-             dict
-             |> Seq.iter (fun kvp -> this.RegisterName(kvp.Key, kvp.Value)))
-
     member this.Begin() =
        this.query <- System.Windows.Browser.HtmlPage.Document.QueryString
 
@@ -236,23 +216,15 @@ type AstroPage(dummy:int) = class
                                           this.UpdateTick ())
        this.timer.add_Tick tick
        this.timer.Start()
-
-    new () as this = AstroPage(0) then
-      this.InitializeComponent()
 end
 
 type AstroApp = class
-    inherit Application
-
-    member this.InitializeComponent() =
-        let prototype = Inversion.App()
-        this.Resources <- prototype.Resources
+    inherit Inversion.App
 
     new () as this = {} then
         this.InitializeComponent()
-        let page = new AstroPage()
-        Window.Current.Content <- page
-        this.RootVisual <- page
-        this.Startup.Add(fun _ -> page.Begin())
+        this.Startup.Add(fun _ -> let page = new AstroPage()
+                                  this.RootVisual <- page
+                                  page.Begin())
 
 end
