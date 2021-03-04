@@ -174,7 +174,10 @@ type AstroPage(self:System.Windows.Controls.Page) = class
       this.UpdateURL ()
 
     member this.Begin() =
-       //page.XamlSourcePath <- @"astroclock.xaml"
+       // Wanted -- XAML to UIElement so we can put something like
+       // self.Content <- LoadXAMLFromResource(...)
+       // and then de-layer, like LoadComponent did
+
        this.query <- System.Windows.Browser.HtmlPage.Document.QueryString
 
        this.page <- System.Windows.Browser.HtmlPage.Document.DocumentUri.GetComponents(
