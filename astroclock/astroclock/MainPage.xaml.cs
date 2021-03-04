@@ -20,7 +20,7 @@ namespace astroclock
       //We create a new instance of DispatcherTimer:
       _dispatcherTimer = new DispatcherTimer
       {
-        //we set the time between each tick of the DispatcherTimer to 100 milliseconds:
+        //we set the time between each tick of the DispatcherTimer to 1 second:
         Interval = new TimeSpan(0, 0, 0, 1)
       };
       _dispatcherTimer.Tick += DispatcherTimer_Tick;
