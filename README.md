@@ -1,6 +1,10 @@
 # astroclock
 A GUI toolkit kata
 
-This is a program that started life as a learning aid for X, c1990, and that I've kept porting to new GUI environments over the years to help me learn my way around the new libraries.  In this repo, I've placed as `archive` the original F#/Silverlight (2 and 3) from 2008-9, a CoffeeScript implementation from c2014 on `astroclock.js`, and the latest motivation, ports of the Silverlight code to OpenSilver (`astroclock.opensilver` and `archive/astroclock.opensilver-first`), of which the former is my current preferred approach.
+This is a program that started life as a learning aid for X, c1990, and that I've kept porting to new GUI environments over the years to help me learn my way around the new libraries.  In this repo, I've placed as `archive` the original F#/Silverlight (2 and 3) from 2008-9, a CoffeeScript implementation from c2014 on `astroclock.js`, and the latest motivation, ports of the F# Silverlight code to OpenSilver (`astroclock.opensilver` and the original `archive/astroclock.opensilver-first`), of which the former is my current preferred approach.
 
+# OpenSilver related blog posts
 
+* [F# and OpenSilver -- first steps](https://stevegilham.blogspot.com/2021/03/f-and-opensilver-first-steps.html)
+* [F# and XAML and OpenSilver](https://stevegilham.blogspot.com/2021/03/f-and-xaml-and-opensilver.html)
+* [F# and XAML and OpenSilver ctd.]( https://stevegilham.blogspot.com/2021/03/f-and-xaml-and-opensilver-ctd.html)
