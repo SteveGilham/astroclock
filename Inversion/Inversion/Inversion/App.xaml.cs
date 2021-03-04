@@ -15,8 +15,8 @@ namespace Inversion
 
       // Enter construction logic here...
 
-      var mainPage = new MainPage();
-      Window.Current.Content = mainPage;
+      //var mainPage = new MainPage();
+      //Window.Current.Content = mainPage;
     }
   }
 }

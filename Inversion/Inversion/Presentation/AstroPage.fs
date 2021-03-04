@@ -9,7 +9,8 @@ open System.Windows.Threading
 
 open Computation
 
-type AstroPage(self:System.Windows.Controls.Page) = class
+type AstroPage() = class
+  inherit System.Windows.Controls.Page()
 
     member val page = String.Empty with get, set
     member val query : System.Collections.Generic.IDictionary<string,string> = null with get, set
@@ -45,22 +46,22 @@ type AstroPage(self:System.Windows.Controls.Page) = class
       ()
 
     member this.MoveHand name angle =
-      let line = self.FindName(name) :?> Line
+      let line = this.FindName(name) :?> Line
       let rotate = line.RenderTransform :?> CompositeTransform
       rotate.Rotation <- angle
 
     member this.SetText name value =
-      let block = self.FindName(name) :?> TextBlock
+      let block = this.FindName(name) :?> TextBlock
       block.Text <- value
       block
 
     member this.SetPlace name where =
-      let item = self.FindName(name) :?> Path
+      let item = this.FindName(name) :?> Path
       (item.Data :?> EllipseGeometry).Center <- Point(where.X, where.Y)
       item.Visibility <- select where.Visible Visibility.Visible Visibility.Collapsed
 
     member this.DrawMoon () =
-      let item = self.FindName("moon") :?> Path
+      let item = this.FindName("moon") :?> Path
       let where = this.moon
       let figure = (item.Data :?> PathGeometry).Figures.[0]
       let rh = (figure.Segments.[0] :?> ArcSegment)
@@ -138,8 +139,8 @@ type AstroPage(self:System.Windows.Controls.Page) = class
           (fallback, false)
 
     member this.ToggleUI state =
-      let expander = self.FindName("expander1") :?> UIElement
-      let button = self.FindName("button1") :?> UIElement
+      let expander = this.FindName("expander1") :?> UIElement
+      let button = this.FindName("button1") :?> UIElement
       match state with
       | true ->
         expander.Visibility <- Visibility.Collapsed
@@ -150,34 +151,50 @@ type AstroPage(self:System.Windows.Controls.Page) = class
       ()
 
     member this.Button1Click() =
-      let button = self.FindName("button1") :?> UIElement
+      let button = this.FindName("button1") :?> UIElement
       let configured = (button.Visibility = Visibility.Visible)
       this.ToggleUI (not configured)
 
     member this.UpdateURL () =
-      let hyperlink = self.FindName("hyperlink") :?> HyperlinkButton
+      let hyperlink = this.FindName("hyperlink") :?> HyperlinkButton
       hyperlink.NavigateUri <- System.Uri(String.Format("{0}?lat={1}&long={2}",
                                            this.page, this.Latitude, this.Longitude))
 
     member this.LatValueChanged() =
-      let lat = self.FindName("slider1") :?> Slider
+      let lat = this.FindName("slider1") :?> Slider
       this.Latitude <- lat.Value
       this.SetText "label1" this.LatitudeCaption |> ignore
       this.UpdateSky ()
       this.UpdateURL ()
 
     member this.LongValueChanged() =
-      let lat = self.FindName("slider2") :?> Slider
+      let lat = this.FindName("slider2") :?> Slider
       this.Longitude <- lat.Value
       this.SetText "label2" this.LongitudeCaption |> ignore
       this.UpdateSky ()
       this.UpdateURL ()
 
-    member this.Begin() =
+    member this.InitializeComponent() =
        // Wanted -- XAML to UIElement so we can put something like
        // self.Content <- LoadXAMLFromResource(...)
        // and then de-layer, like LoadComponent did
+       let prototype = Inversion.MainPage()
+       prototype.InitializeComponent()
+       this.Content <- prototype.Content
+       let hack = typeof<UserControl>.GetField("_nameScopeDictionary",
+                                                System.Reflection.BindingFlags.Instance |||
+                                                System.Reflection.BindingFlags.NonPublic)
 
+       hack
+       |> Option.ofObj
+       |> Option.map ((fun f -> f.GetValue prototype) >> Option.ofObj)
+       |> Option.flatten
+       |> Option.map(fun o -> o :?> System.Collections.Generic.Dictionary<string, Object>)
+       |> Option.iter (fun dict ->
+             dict
+             |> Seq.iter (fun kvp -> this.RegisterName(kvp.Key, kvp.Value)))
+
+    member this.Begin() =
        this.query <- System.Windows.Browser.HtmlPage.Document.QueryString
 
        this.page <- System.Windows.Browser.HtmlPage.Document.DocumentUri.GetComponents(
@@ -187,21 +204,21 @@ type AstroPage(self:System.Windows.Controls.Page) = class
        (this.SetText "label1" this.LatitudeCaption).DataContext <- this.LatitudeCaption
        (this.SetText "label2" this.LongitudeCaption).DataContext <- this.LongitudeCaption
 
-       (self.FindName("button1") :?> Button).Click.Add(fun _ -> this.Button1Click())
+       (this.FindName("button1") :?> Button).Click.Add(fun _ -> this.Button1Click())
 
        this.culture <- fst (this.GetParam "locale" (fun x -> new CultureInfo(x)) CultureInfo.CurrentCulture)
        this.hms <- fst ( this.GetParam "hms" id this.culture.DateTimeFormat.LongTimePattern  ) // HH:mm:ss
        this.date <- fst ( this.GetParam "date" id this.culture.DateTimeFormat.ShortDatePattern ) // d-MMM-yyyy
 
-       (self.FindName("slider1") :?> Slider).ValueChanged.Add(fun _ -> this.LatValueChanged())
+       (this.FindName("slider1") :?> Slider).ValueChanged.Add(fun _ -> this.LatValueChanged())
        let islat = this.GetParam "lat" (fun x -> Double.Parse(x)) this.latitude
        this.latitude <- fst(islat)
-       (self.FindName("slider1") :?> Slider).Value <- this.latitude
+       (this.FindName("slider1") :?> Slider).Value <- this.latitude
 
-       (self.FindName("slider2") :?> Slider).ValueChanged.Add(fun _ -> this.LongValueChanged())
+       (this.FindName("slider2") :?> Slider).ValueChanged.Add(fun _ -> this.LongValueChanged())
        let islong = this.GetParam "long" (fun x -> Double.Parse(x)) this.longitude
        this.longitude <- fst(islong)
-       (self.FindName("slider2") :?> Slider).Value <- this.longitude
+       (this.FindName("slider2") :?> Slider).Value <- this.longitude
 
        let version = System.Reflection.Assembly.GetExecutingAssembly().FullName.ToString()
        let bits = version.Split([|','|])
@@ -219,5 +236,20 @@ type AstroPage(self:System.Windows.Controls.Page) = class
                                           this.UpdateTick ())
        this.timer.add_Tick tick
        this.timer.Start()
+
+end
+
+type AstroApp = class
+    inherit Application
+
+    new () as this = {} then
+        let prototype = Inversion.App()
+        this.Resources <- prototype.Resources
+        let page = new AstroPage()
+        page.InitializeComponent()
+        Window.Current.Content <- page
+
+        this.Startup.Add(fun _ -> this.RootVisual <- page
+                                  page.Begin())
 
 end
