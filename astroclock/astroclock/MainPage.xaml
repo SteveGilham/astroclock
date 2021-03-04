@@ -258,7 +258,7 @@
       </TextBlock>
 
       <TextBlock TextWrapping="Wrap" VerticalAlignment="Bottom">
-        Planetary positions, moon phases, etc. have not been rigorously tested away from roughly zero longitude; but at least BST gives me some confidence in timezones.  Check with <Hyperlink NavigateUri="http://www.fourmilab.ch/cgi-bin/Yoursky">the "Your Sky" map</Hyperlink> to confirm.  There are tooltips for the planets, to help identify which speck is which.
+        Planetary positions, moon phases, etc. have not been rigorously tested away from roughly zero longitude; but at least BST gives me some confidence in timezones.  Check with <Hyperlink NavigateUri="http://www.fourmilab.ch/cgi-bin/Yoursky">the "Your Sky" map</Hyperlink> to confirm.
       </TextBlock>
     </StackPanel>
   </Grid>
