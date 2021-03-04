@@ -11,7 +11,7 @@ open Computation
 
 type AstroPage(self:System.Windows.Controls.Page) = class
 
-    //member val page = String.Empty with get, set
+    member val page = String.Empty with get, set
     member val query : System.Collections.Generic.IDictionary<string,string> = null with get, set
     member val animate = new BackgroundWorker() with get
     member val culture : CultureInfo = null with get, set
@@ -140,8 +140,10 @@ type AstroPage(self:System.Windows.Controls.Page) = class
           this.query
           |> Option.ofObj
           |> Option.map(fun q ->
-            let value = q.[name]
-            ((transform value), true))
+            let ok, value = q.TryGetValue(name)
+            (if ok
+             then transform value
+             else fallback), ok)
           |>Option.defaultValue (fallback, false)
        with _ ->
           (fallback, false)
@@ -164,10 +166,9 @@ type AstroPage(self:System.Windows.Controls.Page) = class
       this.ToggleUI (not configured)
 
     member this.UpdateURL () =
-      ()
-      //let hyperlink = self.FindName("hyperlink") :?> HyperlinkButton
-      //hyperlink.NavigateUri <- System.Uri(String.Format("{0}?lat={1}&long={2}",
-      //                                     this.page, this.Latitude, this.Longitude))
+      let hyperlink = self.FindName("hyperlink") :?> HyperlinkButton
+      hyperlink.NavigateUri <- System.Uri(String.Format("{0}?lat={1}&long={2}",
+                                           this.page, this.Latitude, this.Longitude))
 
     member this.LatValueChanged() =
       let lat = self.FindName("slider1") :?> Slider
@@ -184,12 +185,12 @@ type AstroPage(self:System.Windows.Controls.Page) = class
       this.UpdateURL ()
 
     member this.Begin() =
-       //this.XamlSourcePath <- @"OpenSilverApplication1\astroclock.xaml"
-       //self.query <- System.Windows.Browser.HtmlPage.Document.QueryString
+       //page.XamlSourcePath <- @"astroclock.xaml"
+       this.query <- System.Windows.Browser.HtmlPage.Document.QueryString
 
-       //self.page <- System.Windows.Browser.HtmlPage.Document.DocumentUri.GetComponents(
-       //                   System.UriComponents.SchemeAndServer ||| System.UriComponents.Path,
-       //                   System.UriFormat.Unescaped).Split( [|'?'|]).[0]
+       this.page <- System.Windows.Browser.HtmlPage.Document.DocumentUri.GetComponents(
+                          System.UriComponents.SchemeAndServer ||| System.UriComponents.Path,
+                          System.UriFormat.Unescaped).Split( [|'?'|]).[0]
 
        (this.SetText "label1" this.LatitudeCaption).DataContext <- this.LatitudeCaption
        (this.SetText "label2" this.LongitudeCaption).DataContext <- this.LongitudeCaption
