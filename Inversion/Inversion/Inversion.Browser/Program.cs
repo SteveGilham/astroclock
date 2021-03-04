@@ -26,7 +26,7 @@ namespace Inversion.Browser
     {
       Application.RunApplication(() =>
             {
-              var app = new Inversion.App();
+              var app = new Astroclock.AstroApp();
             });
     }
   }
