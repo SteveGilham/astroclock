@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astroclock", "astroclock\astroclock\astroclock.csproj", "{0EE1AD8D-7C83-45D7-A8E3-52CDCBEBF716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astroclock", "astroclock\astroclock.csproj", "{0EE1AD8D-7C83-45D7-A8E3-52CDCBEBF716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astroclock.Simulator", "astroclock\astroclock.Simulator\astroclock.Simulator.csproj", "{3573465B-8CC0-4865-B141-700516198326}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astroclock.Simulator", "astroclock.Simulator\astroclock.Simulator.csproj", "{3573465B-8CC0-4865-B141-700516198326}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astroclock.Browser", "astroclock\astroclock.Browser\astroclock.Browser.csproj", "{9E699623-C9F1-455E-B264-87C077716A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "astroclock.Browser", "astroclock.Browser\astroclock.Browser.csproj", "{9E699623-C9F1-455E-B264-87C077716A08}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Computation", "astroclock\Computation\Computation.fsproj", "{DA676BF2-8786-43F1-B16C-304C65FA4AAB}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Computation", "Computation\Computation.fsproj", "{DA676BF2-8786-43F1-B16C-304C65FA4AAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
