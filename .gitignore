@@ -60,3 +60,5 @@ archive/astroclock.opensilver-first/astroclock.Simulator/astroclock.Simulator.cs
 astroclock.opensilver/Inversion/Inversion/Inversion.csproj.user
 astroclock.opensilver/Inversion/Inversion.Browser/wwwroot/
 astroclock.opensilver/Inversion/Inversion.Simulator/Inversion.Simulator.csproj.user
+*.user
+FolderProfile.pubxml
