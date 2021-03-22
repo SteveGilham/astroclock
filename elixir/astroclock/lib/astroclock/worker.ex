@@ -4,17 +4,17 @@ defmodule Astroclock.Worker do
   @moduledoc false
 
   def main() do
-#    application:load(drophash),
-#    case Astroclock.Worker:start_link() of
-#        {error, _} = Error ->io:format("Error~n~p~n", [Error]);
-#        Window -> Astroclock.Worker:run(Window)
-#    end.
+    :application.load(Astroclock)
+    case Astroclock.Worker.start_link() do
+        {:error, _} = error -> :io.format("Error~n~p~n", [error])
+        window -> Astroclock.Worker.run(window)
+    end
   end
 
   def start_link() do
-#    case Astroclock.Worker:start_link() of
-#       {error, _} = E -> E;
-#        Window -> {ok, wx_object:get_pid(Window), Window}
-#    end.
+    case Astroclock.Worker.start_link() do
+       {:error, _} = e -> e;
+        window -> {:ok, :wx_object.get_pid(window), window}
+    end
   end
 end
