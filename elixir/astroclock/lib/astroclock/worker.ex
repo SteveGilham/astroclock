@@ -2,8 +2,6 @@ defmodule Astroclock.Worker do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
-
-  use Agent 
   
   def main() do
     :application.load(Astroclock)
@@ -19,4 +17,14 @@ defmodule Astroclock.Worker do
         window -> {:ok, :wx_object.get_pid(window), window}
     end
   end
+  
+  def child_spec(opts) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, [opts]},
+      type: :worker,
+      restart: :temporary,
+      shutdown: 500
+    }
+  end  
 end
