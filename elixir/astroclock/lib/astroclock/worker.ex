@@ -3,16 +3,18 @@ defmodule Astroclock.Worker do
   # for more information on OTP Applications
   @moduledoc false
 
+  use Agent 
+  
   def main() do
     :application.load(Astroclock)
-    case Astroclock.Worker.start_link() do
+    case Astroclock.Window.start_link() do
         {:error, _} = error -> :io.format("Error~n~p~n", [error])
         window -> Astroclock.Worker.run(window)
     end
   end
 
-  def start_link() do
-    case Astroclock.Worker.start_link() do
+  def start_link(_) do
+    case Astroclock.Window.start_link() do
        {:error, _} = e -> e;
         window -> {:ok, :wx_object.get_pid(window), window}
     end

@@ -9,7 +9,7 @@ defmodule Astroclock.Application do
   def start(_type, _args) do
     children = [
       # Starts a worker by calling: Astroclock.Worker.start_link(arg)
-      # {Astroclock.Worker, arg}
+      {Astroclock.Worker, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
