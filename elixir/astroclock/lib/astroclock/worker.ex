@@ -9,7 +9,7 @@ defmodule Astroclock.Worker do
     :application.load(Astroclock)
     case Astroclock.Window.start_link() do
         {:error, _} = error -> :io.format("Error~n~p~n", [error])
-        window -> Astroclock.Worker.run(window)
+        window -> Astroclock.Window.run(window)
     end
   end
 
