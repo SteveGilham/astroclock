@@ -36,6 +36,9 @@ defmodule Astroclock.Window do
   def init(_) do
     :wx.new()
 
+    # mix run --no-halt -e "[]" -- lat long
+    :io.format("Arguments:~n~p~n", [System.argv()])
+
     frame = :wxFrame.new(:wx.null(), wxID_ANY(), "Astroclock", [])
 
     :wxFrame.show(frame)
