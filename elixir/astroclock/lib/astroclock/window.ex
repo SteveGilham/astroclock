@@ -27,12 +27,7 @@ defmodule Astroclock.Window do
   end
   
   def run(astroclock) do
-    try do
-      :wx_object.call(astroclock, :noreply)
-      :ok
-    rescue
-      e -> e
-    end
+    :wx_adapter.run(astroclock)
   end
 
 # object_wx callbacks
