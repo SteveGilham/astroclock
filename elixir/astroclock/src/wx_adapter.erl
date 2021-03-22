@@ -11,5 +11,8 @@
 
 -include_lib("wx/include/wx.hrl").
 
+run(Item) ->
+    catch wx_object:call(Item, noreply), ok.  
+
 wxID_ANY() ->
     ?wxID_ANY.
