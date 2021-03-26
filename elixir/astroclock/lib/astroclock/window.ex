@@ -37,11 +37,11 @@ defmodule Astroclock.Window do
     :wx.new()
 
     # mix run --no-halt -e "[]" -- lat long
-    #:io.format("Arguments:~n~p~n", [System.argv()])
+    # :io.format("Arguments:~n~p~n", [System.argv()])
 
     frame = :wxFrame.new(:wx.null(), wxID_ANY(), "Astroclock", [])
     canvas = :wxWindow.new(frame, wxID_ANY())
-    :wxWindow.setBackgroundColour(canvas, {0,0, 0})    
+    :wxWindow.setBackgroundColour(canvas, {0, 0, 0})
 
     :wxFrame.show(frame)
     :wxFrame.raise(frame)
