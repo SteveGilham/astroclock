@@ -41,6 +41,7 @@ defmodule Astroclock.Window do
 
     frame = :wxFrame.new(:wx.null(), wxID_ANY(), "Astroclock", [])
     canvas = :wxWindow.new(frame, wxID_ANY())
+    :wxWindow.setBackgroundColour(canvas, {0,0, 0})    
 
     :wxFrame.show(frame)
     :wxFrame.raise(frame)
