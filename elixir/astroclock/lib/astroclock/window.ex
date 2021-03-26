@@ -9,7 +9,7 @@ defmodule Astroclock.Window do
   import :wx_adapter
 
   defmodule State do
-    defstruct [:frame]
+    defstruct [:frame, :canvas]
   end
 
   # API
@@ -37,14 +37,15 @@ defmodule Astroclock.Window do
     :wx.new()
 
     # mix run --no-halt -e "[]" -- lat long
-    :io.format("Arguments:~n~p~n", [System.argv()])
+    #:io.format("Arguments:~n~p~n", [System.argv()])
 
     frame = :wxFrame.new(:wx.null(), wxID_ANY(), "Astroclock", [])
+    canvas = :wxWindow.new(frame, wxID_ANY())
 
     :wxFrame.show(frame)
     :wxFrame.raise(frame)
 
-    {frame, %State{frame: frame}}
+    {frame, %State{frame: frame, canvas: canvas}}
   end
 
   @impl :wx_object
