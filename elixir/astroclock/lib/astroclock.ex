@@ -1,18 +1,10 @@
 defmodule Astroclock do
   @moduledoc """
-  Documentation for `Astroclock`.
+  Entry point for `Astroclock`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Astroclock.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  @spec main() :: :ok
+  def main do
+    Astroclock.Worker.main()
   end
 end
