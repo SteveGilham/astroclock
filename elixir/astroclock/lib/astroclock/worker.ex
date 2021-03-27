@@ -1,7 +1,7 @@
 defmodule Astroclock.Worker do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
+  @moduledoc """
+  OTP main process for `Astroclock`.
+  """
 
   def main do
     :application.load(Astroclock)
