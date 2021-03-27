@@ -1,6 +1,6 @@
 defmodule Astroclock do
   @moduledoc """
-  Documentation for `Astroclock`.
+  Entry point for `Astroclock`.
   """
 
   def main do

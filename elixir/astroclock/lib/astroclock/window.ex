@@ -1,6 +1,9 @@
 defmodule Astroclock.Window do
   # TODO specs and types
-  @moduledoc false
+  @moduledoc """
+  UI for `Astroclock`.
+  """
+
   @behaviour :wx_object
 
   # Record.extract & extract_all can be used to extract records from Erlang files.
@@ -9,6 +12,10 @@ defmodule Astroclock.Window do
   import :wx_adapter
 
   defmodule State do
+    @moduledoc """
+    UI state for `Astroclock`.
+    """
+
     defstruct [:frame]
     @type state :: %State{frame: :wxFrame}
   end
