@@ -10,15 +10,16 @@ defmodule Astroclock.Window do
 
   defmodule State do
     defstruct [:frame]
+    @type state :: %State{frame: :wxFrame}
   end
 
   # API
 
-  def start() do
+  def start do
     :wx_object.start(__MODULE__, [], [])
   end
 
-  def start_link() do
+  def start_link do
     :wx_object.start_link(__MODULE__, [], [])
   end
 

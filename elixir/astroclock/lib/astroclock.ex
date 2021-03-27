@@ -3,16 +3,7 @@ defmodule Astroclock do
   Documentation for `Astroclock`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Astroclock.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def main do
+    Astroclock.Worker.main()
   end
 end

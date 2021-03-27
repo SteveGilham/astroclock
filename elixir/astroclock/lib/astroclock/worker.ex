@@ -3,7 +3,7 @@ defmodule Astroclock.Worker do
   # for more information on OTP Applications
   @moduledoc false
 
-  def main() do
+  def main do
     :application.load(Astroclock)
 
     case Astroclock.Window.start_link() do
