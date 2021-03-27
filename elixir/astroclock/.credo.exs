@@ -9,9 +9,9 @@
       },
       plugins: [],
       requires: [],
-      strict: false,
+      strict: true,
       parse_timeout: 5000,
-      color: true,
+      color: false,
       checks: [
         {Credo.Check.Readability.Specs, []}          
         #{Credo.Check.Design.AliasUsage, priority: :low},
