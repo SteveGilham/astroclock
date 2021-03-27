@@ -9,6 +9,7 @@ defmodule Astroclock.Window do
   # May need to `import` modules from the wx.hrl to replace `-import` directives
 
   import :wx_adapter
+  require Record
 
   defmodule State do
     @moduledoc """
@@ -17,9 +18,11 @@ defmodule Astroclock.Window do
     defstruct [:frame]
   end
 
+  Record.defrecord(:wxEvent, Record.extract(:wx, from_lib: "wx/include/wx.hrl"))
 
   @type astroclock() :: :wxWindow.wxWindow()
-  @type state :: %State{frame: :wxFrame}
+  @type state :: %State{frame: :wxFrame.wxFrame()}
+  @type wxEvent :: wxEvent()
 
   # API
 
@@ -59,7 +62,7 @@ defmodule Astroclock.Window do
   end
 
   @impl :wx_object
-  @spec handle_event(:wx.wx(), state()):: {:noreply, state()}
+  @spec handle_event(wxEvent(), state()) :: {:noreply, state()}
   def handle_event(event, state) do
     :io.format("Unhandled Event:~n~p~n", [event])
     {:noreply, state}
