@@ -5,9 +5,6 @@ defmodule Astroclock.Window do
 
   @behaviour :wx_object
 
-  # Record.extract & extract_all can be used to extract records from Erlang files.
-  # May need to `import` modules from the wx.hrl to replace `-import` directives
-
   import :wx_adapter
   require Record
 
