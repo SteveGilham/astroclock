@@ -12,7 +12,10 @@ defmodule Astroclock.Window do
     @moduledoc """
     UI state for `Astroclock`.
     """
-    defstruct [:frame, :canvas]
+    defstruct [
+      :frame,
+      :canvas
+    ]
   end
 
   Record.defrecord(:wxEvent, Record.extract(:wx, from_lib: "wx/include/wx.hrl"))
