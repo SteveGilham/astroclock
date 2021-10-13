@@ -62,3 +62,5 @@ astroclock.opensilver/Inversion/Inversion.Browser/wwwroot/
 astroclock.opensilver/Inversion/Inversion.Simulator/Inversion.Simulator.csproj.user
 *.user
 FolderProfile.pubxml
+wwwroot/
+pubtmp/

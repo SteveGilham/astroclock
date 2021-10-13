@@ -1,50 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>SAK</SccProjectName>
-    <SccProvider>SAK</SccProvider>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccLocalPath>SAK</SccLocalPath>
-    <Configurations>Debug;Release;</Configurations>
-  </PropertyGroup>
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion>
+    <EnableDefaultItems>false</EnableDefaultItems>
+	<DefineSilverlight>true</DefineSilverlight>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>DEBUG;OPENSILVER</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>OPENSILVER</DefineConstants>
-  </PropertyGroup>
-  
   <ItemGroup>
-    <None Remove="EmptyOpenSilverMigrationApplication.csproj.vspscc" />
-    <None Remove="MyTemplate_rename_me_after_export.vstemplate" />
+    <PackageReference Include="OpenSilver" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="MainPage.xaml">
-      <SubType>Designer</SubType>
+	<ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </Content>
-    <PackageReference Include="OpenSilver" Version="1.0.0-alpha-007" />
-    <Page Include="App.xaml">
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainPage.xaml.cs" />
   </ItemGroup>
   
 </Project>
