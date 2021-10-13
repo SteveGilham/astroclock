@@ -4,9 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
     <NoXamlPreprocessor>True</NoXamlPreprocessor>
     <OpenSilverType>4</OpenSilverType>
-	<PublishTrimmed>true</PublishTrimmed>
-	<!-- Uncomment to enable AOT compilation when publishing -->
-	<!--<RunAOTCompilation Condition="'$(IsSecondPass)'!='True'">true</RunAOTCompilation>-->
+    <PublishTrimmed>true</PublishTrimmed>
+    <IntermediateOutputPath>$(SolutionDir)../obj/</IntermediateOutputPath>
+    <BaseIntermediateOutputPath>$(IntermediateOutputPath)</BaseIntermediateOutputPath>
+    <!-- OutputPath>$(SolutionDir)../bin/</OutputPath>
+    <OutDir>$(SolutionDir)../bin/</OutDir>
+    <PublishDir>$(SolutionDir)../pub/</PublishDir>
+    <PublishIntermediateTempPath>$(SolutionDir)../pubtmp/</PublishIntermediateTempPath -->
+    <!-- Uncomment to enable AOT compilation when publishing -->
+    <!--<RunAOTCompilation Condition="'$(IsSecondPass)'!='True'">true</RunAOTCompilation>-->
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +26,6 @@
   </ItemGroup>
 
   <PropertyGroup>
-     <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
+    <DisableImplicitNamespaceImports>True</DisableImplicitNamespaceImports>
   </PropertyGroup>
-
 </Project>
