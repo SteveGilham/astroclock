@@ -3,12 +3,12 @@ using System;
 
 namespace Inversion.Simulator
 {
-    static class Startup
+    internal static class Startup
     {
         [STAThread]
-        static int Main(string[] args)
+        private static int Main(string[] args)
         {
-            return SimulatorLauncher.Start(typeof(App));
+            return SimulatorLauncher.Start(typeof(Astroclock.AstroApp));
         }
     }
 }
