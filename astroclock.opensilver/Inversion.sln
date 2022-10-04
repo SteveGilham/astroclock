@@ -1,15 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31025.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inversion", "Inversion\Inversion\Inversion.csproj", "{8C82F510-C5B6-4911-8217-E50E74627A37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inversion", "Inversion\Inversion\Inversion.csproj", "{8C82F510-C5B6-4911-8217-E50E74627A37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inversion.Simulator", "Inversion\Inversion.Simulator\Inversion.Simulator.csproj", "{2AB1AAB5-9B0D-4BD7-8FC5-AA8D434CA371}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inversion.Simulator", "Inversion\Inversion.Simulator\Inversion.Simulator.csproj", "{2AB1AAB5-9B0D-4BD7-8FC5-AA8D434CA371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inversion.Browser", "Inversion\Inversion.Browser\Inversion.Browser.csproj", "{00C57927-A815-4C65-915D-58FE28776841}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inversion.Browser", "Inversion\Inversion.Browser\Inversion.Browser.csproj", "{00C57927-A815-4C65-915D-58FE28776841}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Presentation", "Inversion\Presentation\Presentation.fsproj", "{B3761EDC-13BA-4E34-8323-98F77294E267}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Presentation", "Inversion\Presentation\Presentation.fsproj", "{B3761EDC-13BA-4E34-8323-98F77294E267}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A479E77-721A-4745-AE66-BE687695A36E}"
+	ProjectSection(SolutionItems) = preProject
+		..\global.json = ..\global.json
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
