@@ -1,6 +1,7 @@
 namespace Astroclock
-open System.Reflection;
-open System.Runtime.InteropServices;
+
+open System.Reflection
+open System.Runtime.InteropServices
 
 // General Information about an assembly is controlled through the following set of attributes.
 [<assembly: AssemblyTitle("astroclock-fs")>]
