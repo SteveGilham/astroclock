@@ -23,5 +23,9 @@
     <Compile Include="App.xaml.cs" />
     <Compile Include="MainPage.xaml.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="rough-grey.jpg" />
+  </ItemGroup>
   
 </Project>
