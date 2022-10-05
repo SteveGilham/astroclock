@@ -9,8 +9,10 @@ open System.Windows.Threading
 
 open Computation
 
-type AstroPage() = class
-  inherit Inversion.MainPage()
+type AstroPage() as this = class
+  inherit Page()
+    do
+      System.Windows.Application.LoadComponent(this, Uri("file://./MainPage.xaml", UriKind.Relative))
 
     member val page = String.Empty with get, set
     member val query : System.Collections.Generic.IDictionary<string,string> = null with get, set
@@ -216,13 +218,14 @@ type AstroPage() = class
                                           this.UpdateTick ())
        this.timer.add_Tick tick
        this.timer.Start()
+
 end
 
 type AstroApp = class
-    inherit Inversion.App
+    inherit Application
 
     new () as this = {} then
-        this.InitializeComponent()
+        System.Windows.Application.LoadComponent(this, Uri("pack://application:,,,/Presentation;component./App.xaml", UriKind.Relative))
         this.Startup.Add(fun _ -> let page = new AstroPage()
                                   this.RootVisual <- page
                                   page.Begin())
