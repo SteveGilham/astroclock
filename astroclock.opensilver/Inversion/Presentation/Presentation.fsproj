@@ -9,11 +9,11 @@
     <None Include="Properties\launchSettings.json" />
     <EmbeddedResource Include="App.xaml">
       <Generator></Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.xaml">
       <Generator></Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Computation.fs" />
