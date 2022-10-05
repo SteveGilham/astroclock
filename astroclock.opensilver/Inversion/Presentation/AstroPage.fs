@@ -335,8 +335,6 @@ type AstroPage() as this =
       this.timer.add_Tick tick
       this.timer.Start()
 
-
-
   end
 
 type AstroApp =
@@ -355,7 +353,5 @@ type AstroApp =
           let page = new AstroPage()
           this.RootVisual <- page
           page.Begin())
-
-
 
   end
