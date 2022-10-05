@@ -5,8 +5,6 @@
     <NoXamlPreprocessor>True</NoXamlPreprocessor>
     <OpenSilverType>4</OpenSilverType>
     <PublishTrimmed>true</PublishTrimmed>
-    <IntermediateOutputPath>$(SolutionDir)../obj/</IntermediateOutputPath>
-    <BaseIntermediateOutputPath>$(IntermediateOutputPath)</BaseIntermediateOutputPath>
     <!-- OutputPath>$(SolutionDir)../bin/</OutputPath>
     <OutDir>$(SolutionDir)../bin/</OutDir>
     <PublishDir>$(SolutionDir)../pub/</PublishDir>
