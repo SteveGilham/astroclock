@@ -17,7 +17,7 @@ type AstroPage() as this =
     do
       System.Windows.Application.LoadComponent(
         this,
-        Uri("./Presentation;component/MainPage.xaml", System.UriKind.Relative)
+        Uri("/Presentation;component/MainPage.xaml", System.UriKind.Relative)
       )
 
     member val page = String.Empty with get, set
@@ -346,7 +346,7 @@ type AstroApp =
       then
         System.Windows.Application.LoadComponent(
           this,
-          Uri("./Presentation;component/App.xaml", System.UriKind.Relative)
+          Uri("/Presentation;component/App.xaml", System.UriKind.Relative)
         )
 
         this.Startup.Add(fun _ ->
