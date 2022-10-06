@@ -15,6 +15,7 @@
       <Generator></Generator>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Resource Include="rough-grey.jpg" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Computation.fs" />
     <Compile Include="AstroPage.fs" />

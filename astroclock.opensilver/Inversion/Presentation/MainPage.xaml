@@ -7,16 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+  <Page.Background>
+    <ImageBrush ImageSource="/Presentation;component/rough-grey.jpg" Stretch="None" />
+  </Page.Background>
+
   <Grid x:Name="LayoutRoot">
     <StackPanel>
       <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">
         <Span FontWeight="Bold">Astroclock Blazor WASM Applet</Span>
       </TextBlock>
       <TextBlock Height="28" Canvas.Top="0"  Name="legend" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="" />
-
-      <!--Grid.Background>
-      <ImageBrush ImageSource="/rough-grey.jpg" Stretch="None" />
-    </Grid.Background -->
 
       <Canvas Name="canvas1" Margin="0,0,0,129" Background="Black" Width="480" Height="240">
         <TextBlock Height="30" FontSize="25" Canvas.Left="240" Canvas.Top="24" Name="hms" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="240">::</TextBlock>
