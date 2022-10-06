@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
   <Page.Background>
-    <ImageBrush ImageSource="/Inversion;component/rough-grey.jpg" Stretch="None" />
+    <ImageBrush ImageSource="/Inversion;component/rough-grey.png" Stretch="None" />
   </Page.Background>
 
   <Grid x:Name="LayoutRoot">
