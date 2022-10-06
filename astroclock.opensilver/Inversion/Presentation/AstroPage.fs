@@ -337,12 +337,9 @@ type AstroApp =
     new() as this =
       {  }
       then
-        this.InitializeComponent()
-
         this.Startup.Add(fun _ ->
           let page = new AstroPage()
           this.RootVisual <- page
           page.Begin())
-
 
   end
