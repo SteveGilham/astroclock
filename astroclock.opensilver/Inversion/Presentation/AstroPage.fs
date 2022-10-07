@@ -10,9 +10,15 @@ open System.Windows.Threading
 
 open Computation
 
-type AstroPage() =
+type AstroPage() as this =
   class
-    inherit Inversion.MainPage()
+    inherit Page()
+
+    do
+      System.Windows.Application.LoadComponent(
+        this,
+        Uri("/Inversion;component/MainPage.xaml", System.UriKind.Relative)
+      )
 
     member val page = String.Empty with get, set
 
@@ -332,11 +338,16 @@ type AstroPage() =
 
 type AstroApp =
   class
-    inherit Inversion.App
+    inherit Application
 
     new() as this =
       {  }
       then
+        System.Windows.Application.LoadComponent(
+          this,
+          Uri("/Inversion;component/App.xaml", System.UriKind.Relative)
+        )
+
         this.Startup.Add(fun _ ->
           let page = new AstroPage()
           this.RootVisual <- page

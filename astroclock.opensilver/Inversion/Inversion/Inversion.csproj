@@ -18,10 +18,5 @@
       <Generator>MSBuild:Compile</Generator>
     </Resource>
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="App.cs" />
-    <Compile Include="MainPage.cs" />
-  </ItemGroup>
   
 </Project>
