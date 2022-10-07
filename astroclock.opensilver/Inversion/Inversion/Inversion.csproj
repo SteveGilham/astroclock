@@ -11,8 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="App.xaml" />
-    <Resource Include="MainPage.xaml" />
+    <Resource Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Resource Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
