@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="AstroPage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OpenSilver" Version="1.1.0" />
   </ItemGroup>
 
