@@ -7,14 +7,14 @@
 
   <ItemGroup>
     <None Include="Properties\launchSettings.json" />
-    <EmbeddedResource Include="App.xaml">
-      <Generator></Generator>
+    <Resource Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainPage.xaml">
-      <Generator></Generator>
+    </Resource>
+    <Resource Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Resource>
     <Resource Include="rough-grey.jpg" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Computation.fs" />
