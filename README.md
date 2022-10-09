@@ -11,4 +11,5 @@ This is a program that started life as a learning aid for X, c1990, and that I'v
 * [F# and OpenSilver -- first steps](https://stevegilham.blogspot.com/2021/03/f-and-opensilver-first-steps.html)
 * [F# and XAML and OpenSilver](https://stevegilham.blogspot.com/2021/03/f-and-xaml-and-opensilver.html)
 * [F# and XAML and OpenSilver ctd.](https://stevegilham.blogspot.com/2021/03/f-and-xaml-and-opensilver-ctd.html)
-* [F# and OpenSilver v1.0](https://stevegilham.blogspot.com/2021/10/f-and-opensilver-v10.html); also works for OpenSilver 1.1 with appropriate SDK updates
+* [F# and OpenSilver v1.0](https://stevegilham.blogspot.com/2021/10/f-and-opensilver-v10.html)
+* [F# and OpenSilver v1.1](https://stevegilham.blogspot.com/2022/10/f-and-opensilver-v11.html)
