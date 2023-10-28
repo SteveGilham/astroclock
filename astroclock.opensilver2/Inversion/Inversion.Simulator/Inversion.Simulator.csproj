@@ -10,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Inversion\Inversion.csproj" />
+      <ProjectReference Include="..\Presentation\Presentation.fsproj" />
     </ItemGroup>
 
 </Project>

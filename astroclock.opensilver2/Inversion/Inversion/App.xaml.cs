@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Inversion
 {
-  public sealed partial class App : Application
+  public abstract partial class App : Application
   {
     public App()
     {
@@ -15,8 +15,8 @@ namespace Inversion
 
       // Enter construction logic here...
 
-      var mainPage = new MainPage();
-      Window.Current.Content = mainPage;
+      //var mainPage = new MainPage();
+      //Window.Current.Content = mainPage;
     }
   }
 }

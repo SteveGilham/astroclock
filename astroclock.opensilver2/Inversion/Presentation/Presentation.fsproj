@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <SkipXamlPreprocessor>true</SkipXamlPreprocessor>
+    <OpenSilverGenerateAssemblyInfo>false</OpenSilverGenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Properties\launchSettings.json" />
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Computation.fs" />
+    <Compile Include="AstroPage.fs" />
+    <Compile Remove=".\**\*XamlDesigner.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Inversion\Inversion.csproj" />
+    <PackageReference Include="OpenSilver" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="7.0.400" />
+  </ItemGroup>
+
+  <Target Name="CSharpXamlForHtml5BeforeBuild">
+    <Warning Text="!!CSharpXamlForHtml5BeforeBuild" />
+  </Target>
+
+  <Target Name="GenerateXamlDesignerAttributes">
+    <Warning Text="!!GenerateXamlDesignerAttributes" />
+  </Target>
+  
+</Project>

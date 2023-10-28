@@ -7,25 +7,25 @@ using System.Windows;
 
 namespace Inversion.Browser
 {
-  public class Program
-  {
-    public static async Task Main(string[] args)
+    public class Program
     {
-      var builder = WebAssemblyHostBuilder.CreateDefault(args);
-      builder.RootComponents.Add<App>("#app");
+        public static async Task Main(string[] args)
+        {
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("#app");
 
-      builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-      var host = builder.Build();
-      await host.RunAsync();
+            var host = builder.Build();
+            await host.RunAsync();
+        }
+
+        public static void RunApplication()
+        {
+            Application.RunApplication(() =>
+            {
+              var app = new Astroclock.AstroApp();
+            });
+        }
     }
-
-    public static void RunApplication()
-    {
-      Application.RunApplication(() =>
-      {
-        var app = new Inversion.App();
-      });
-    }
-  }
 }
