@@ -5,6 +5,8 @@
     <NoXamlPreprocessor>True</NoXamlPreprocessor>
     <OpenSilverType>5</OpenSilverType>
     <PublishTrimmed>true</PublishTrimmed>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <BlazorEnableCompression>false</BlazorEnableCompression>
     <!-- Uncomment to enable AOT compilation when publishing -->
     <!--<RunAOTCompilation>true</RunAOTCompilation>-->
   </PropertyGroup>
