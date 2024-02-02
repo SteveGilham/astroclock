@@ -8,4 +8,4 @@ open System.Reflection
 
 
 [<assembly: System.Runtime.CompilerServices.InternalsVisibleTo("XamlDesignerBackground")>]
-do()
+do ()
