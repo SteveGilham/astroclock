@@ -250,23 +250,20 @@ type AstroPage() =
       this.query <- System.Windows.Browser.HtmlPage.Document.QueryString
 
       this.page <-
-        System
-          .Windows
-          .Browser
-          .HtmlPage
-          .Document
-          .DocumentUri
+        System.Windows.Browser.HtmlPage.Document.DocumentUri
           .GetComponents(
             System.UriComponents.SchemeAndServer
             ||| System.UriComponents.Path,
             System.UriFormat.Unescaped
           )
-          .Split(
-          [| '?' |]
-        ).[0]
+          .Split([| '?' |])
+          .[0]
 
-      (this.SetText "label1" this.LatitudeCaption).DataContext <- this.LatitudeCaption
-      (this.SetText "label2" this.LongitudeCaption).DataContext <- this.LongitudeCaption
+      (this.SetText "label1" this.LatitudeCaption)
+        .DataContext <- this.LatitudeCaption
+
+      (this.SetText "label2" this.LongitudeCaption)
+        .DataContext <- this.LongitudeCaption
 
       (this.FindName("button1") :?> Button)
         .Click.Add(fun _ -> this.Button1Click())
@@ -300,9 +297,7 @@ type AstroPage() =
       (this.FindName("slider2") :?> Slider).Value <- this.longitude
 
       let version =
-        System
-          .Reflection
-          .Assembly
+        System.Reflection.Assembly
           .GetExecutingAssembly()
           .FullName.ToString()
 
@@ -335,7 +330,7 @@ type AstroApp =
     inherit Inversion.App
 
     new() as this =
-      {  }
+      { }
       then
         this.InitializeComponent()
 
