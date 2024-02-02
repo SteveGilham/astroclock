@@ -15,5 +15,6 @@ type App = class
 
         let mainPage = new MainPage()
         Window.Current.Content <- mainPage;
+        mainPage.Begin()
 
 end
