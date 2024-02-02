@@ -1,0 +1,265 @@
+﻿<sdk:Page
+    x:Class="Astroclock.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:local="clr-namespace:Astroclock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+  <Grid x:Name="LayoutRoot">
+    <StackPanel>
+      <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Span FontWeight="Bold">Astroclock Blazor WASM Applet</Span>
+      </TextBlock>
+      <TextBlock Height="28" Canvas.Top="0"  Name="legend" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="" />
+
+      <!--Grid.Background>
+      <ImageBrush ImageSource="/rough-grey.jpg" Stretch="None" />
+    </Grid.Background -->
+
+      <Canvas Name="canvas1" Margin="0,0,0,129" Background="Black" Width="480" Height="240">
+        <TextBlock Height="30" FontSize="25" Canvas.Left="240" Canvas.Top="24" Name="hms" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="240">::</TextBlock>
+        <TextBlock Height="30" FontSize="25" Canvas.Left="240" Canvas.Top="78" Name="day" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="240">::</TextBlock>
+        <TextBlock Height="30" FontSize="25" Canvas.Left="240" Canvas.Top="132" Name="date" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="240">::</TextBlock>
+        <TextBlock Height="30" FontSize="25" Canvas.Left="240" Canvas.Top="186" Name="sunup" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="240">::</TextBlock>
+
+        <Path Name="mercury" Fill = "Silver" StrokeThickness = "1" Stroke="Silver">
+          <ToolTipService.ToolTip>
+            <ToolTip Content="Mercury &#x263f;"></ToolTip>
+          </ToolTipService.ToolTip>
+          <Path.Data>
+            <EllipseGeometry Center="150,150" RadiusX="2" RadiusY="2" />
+          </Path.Data>
+        </Path>
+        <Path Name="venus" Fill = "White" StrokeThickness = "1" Stroke="White">
+          <ToolTipService.ToolTip>
+            <ToolTip Content="Venus &#x2640;"></ToolTip>
+          </ToolTipService.ToolTip>
+          <Path.Data>
+            <EllipseGeometry Center="100,100" RadiusX="3" RadiusY="3" />
+          </Path.Data>
+        </Path>
+        <Path Name="mars" Fill = "Red" StrokeThickness = "1" Stroke="Red">
+          <ToolTipService.ToolTip>
+            <ToolTip Content="Mars &#x2642;"></ToolTip>
+          </ToolTipService.ToolTip>
+          <Path.Data>
+            <EllipseGeometry Center="90,90" RadiusX="2" RadiusY="2" />
+          </Path.Data>
+        </Path>
+        <Path Name="jupiter" Fill = "Silver" StrokeThickness = "1" Stroke="Silver">
+          <ToolTipService.ToolTip>
+            <ToolTip Content="Jupiter  &#x2643;"></ToolTip>
+          </ToolTipService.ToolTip>
+          <Path.Data>
+            <EllipseGeometry Center="80,80" RadiusX="3" RadiusY="3" />
+          </Path.Data>
+        </Path>
+        <Path Name="saturn" Fill = "Yellow" StrokeThickness = "1" Stroke="Yellow">
+          <ToolTipService.ToolTip>
+            <ToolTip Content="Saturn &#x2644;"></ToolTip>
+          </ToolTipService.ToolTip>
+          <Path.Data>
+            <EllipseGeometry Center="70,70" RadiusX="4" RadiusY="2" />
+          </Path.Data>
+        </Path>
+        <Path Name="moon" Fill = "Silver" StrokeThickness = "0" Stroke="Silver">
+          <ToolTipService.ToolTip>
+            <ToolTip Content="The Moon &#x263e;"></ToolTip>
+          </ToolTipService.ToolTip>
+          <Path.Data>
+            <!-- EllipseGeometry Center="150,150" RadiusX="2.5" RadiusY="2.5" / -->
+            <PathGeometry>
+              <PathGeometry.Figures>
+                <PathFigure StartPoint="150.0, 145">
+                  <PathFigure.Segments>
+                    <ArcSegment Size="0.5, 5" RotationAngle="180"
+                        Point="150.0, 155" IsLargeArc="False"
+                        SweepDirection="Clockwise" />
+                    <ArcSegment Size="2.5, 2.5" RotationAngle="180"
+                        Point="150.0, 145" IsLargeArc="False"
+                        SweepDirection="Clockwise" />
+                  </PathFigure.Segments>
+                </PathFigure>
+              </PathGeometry.Figures>
+            </PathGeometry>
+          </Path.Data>
+        </Path>
+
+        <Path Name="sun" Fill = "Yellow" StrokeThickness = "1" Stroke="Yellow">
+          <ToolTipService.ToolTip>
+            <ToolTip Content="The Sun &#x2609;"></ToolTip>
+          </ToolTipService.ToolTip>
+          <Path.Data>
+            <EllipseGeometry Center="120,120" RadiusX="5" RadiusY="5" />
+          </Path.Data>
+        </Path>
+        <Ellipse
+     Name ="dial"
+     Height="240"
+     Width="240"
+     StrokeThickness="20"
+     Stroke="Black" />
+        <Line
+      Name="t1"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="30" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t2"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="60" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t3"
+      X1="0" Y1="-116"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="3">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="90" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t4"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="120" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t5"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="150" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t6"
+      X1="120" Y1="236"
+      X2="120" Y2="220"
+      Stroke="White"
+      StrokeThickness="3" />
+        <Line
+      Name="t7"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="210" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t8"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="240" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t9"
+      X1="0" Y1="-116"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="3">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="270" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t10"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="300" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t11"
+      X1="0" Y1="-108"
+      X2="0" Y2="-100"
+      Stroke="White"
+      StrokeThickness="2">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="330" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="t12"
+      X1="120" Y1="4"
+      X2="120" Y2="20"
+      Stroke="White"
+      StrokeThickness="3" />
+        <Line
+      Name="hour"
+      X1="0" Y1="0"
+      X2="0" Y2="-60"
+      Stroke="White"
+      StrokeThickness="4">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="0" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="minute"
+      X1="0" Y1="0"
+      X2="0" Y2="-90"
+      Stroke="White"
+      StrokeThickness="3">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="0" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+        <Line
+      Name="second"
+      X1="0" Y1="0"
+      X2="0" Y2="-85"
+      Stroke="White"
+      StrokeThickness="1">
+          <Line.RenderTransform>
+            <CompositeTransform Rotation="0" TranslateX="120" TranslateY="120" />
+          </Line.RenderTransform>
+        </Line>
+      </Canvas>
+      <Canvas Height="72" Margin="0,0,0,51" Name="expander1" VerticalAlignment="Bottom">
+        <TextBlock Height="28" Canvas.Top="0"  Name="label1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87" Text="" />
+        <TextBlock Height="28" Canvas.Top="28" Name="label2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87" Text="" />
+        <Slider Orientation="Horizontal" Height="22" Canvas.Top="0" Canvas.Left="120" Name="slider1" VerticalAlignment="Bottom" Maximum="90" Minimum="-90" LargeChange="10" SmallChange="1" Width="360" Value="52" Background="Silver" />
+        <Slider Orientation="Horizontal" Height="22" Canvas.Top="28" Canvas.Left="120" Name="slider2" VerticalAlignment="Bottom" Maximum="180" Minimum="-180" LargeChange="10" SmallChange="1" Width="360" Value="0" Background="Silver" />
+      </Canvas>
+      <HyperlinkButton Height="28" HorizontalAlignment="Left" Margin="0,0,0,17" Name="hyperlink" VerticalAlignment="Bottom" Width="87" NavigateUri="astroclock.html" Content="Permalink" />
+      <Button Height="23" HorizontalAlignment="Right" Margin="0,0,12,22" Name="button1" VerticalAlignment="Bottom" Width="75" Content="Configure" />
+
+      <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+        The observer's location can  be altered at any time with the slider controls.
+      </TextBlock>
+
+      <TextBlock TextWrapping="Wrap" VerticalAlignment="Bottom">
+        Planetary positions, moon phases, etc. have not been rigorously tested away from roughly zero longitude; but at least BST gives me some confidence in timezones.  Check with <Hyperlink NavigateUri="http://www.fourmilab.ch/cgi-bin/Yoursky">the "Your Sky" map</Hyperlink> to confirm.
+      </TextBlock>
+    </StackPanel>
+  </Grid>
+</sdk:Page>
