@@ -71,7 +71,7 @@ type MainPage() as this =
       let rotate =
         line.RenderTransform :?> CompositeTransform
 
-      rotate.Rotation <- angle
+      rotate.Rotation <- (angle + 180.0)
 
     member this.SetText name value =
       let block =
