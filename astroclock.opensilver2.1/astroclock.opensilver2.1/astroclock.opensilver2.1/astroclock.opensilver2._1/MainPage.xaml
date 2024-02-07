@@ -8,6 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
   <Grid x:Name="LayoutRoot">
+    <Grid.Background>
+      <ImageBrush ImageSource="ms-appx://textured_paper.png" />
+    </Grid.Background>
+
     <StackPanel>
       <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">
         <Span FontWeight="Bold">Astroclock Blazor WASM Applet</Span>

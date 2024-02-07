@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="textured_paper.png" />
     <Compile Include="Computation.fs" />
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
