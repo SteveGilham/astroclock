@@ -4,10 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <EnableDefaultItems>false</EnableDefaultItems>
     <DefineSilverlight>true</DefineSilverlight>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver" Version="2.1.0-preview-2024-02-01-142750-c1d14dd6" />
+    <PackageReference Include="OpenSilver" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
