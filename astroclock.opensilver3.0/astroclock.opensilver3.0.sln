@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astroclock.opensilver3._0.Browser", "astroclock.opensilver3.0\astroclock.opensilver3._0.Browser\astroclock.opensilver3._0.Browser.csproj", "{2442DB75-2A4C-46FC-8A4A-3FC3045592D8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "astroclock.opensilver3._0", "astroclock.opensilver3.0\astroclock.opensilver3._0\astroclock.opensilver3._0.fsproj", "{A0BF64EE-D957-4C80-A5FB-9B393B598F79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astroclock.opensilver3._0.Simulator", "astroclock.opensilver3.0\astroclock.opensilver3._0.Simulator\astroclock.opensilver3._0.Simulator.csproj", "{FD16BC09-2A5B-45F9-A58A-FC2BE4E229EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2442DB75-2A4C-46FC-8A4A-3FC3045592D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2442DB75-2A4C-46FC-8A4A-3FC3045592D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2442DB75-2A4C-46FC-8A4A-3FC3045592D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2442DB75-2A4C-46FC-8A4A-3FC3045592D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0BF64EE-D957-4C80-A5FB-9B393B598F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0BF64EE-D957-4C80-A5FB-9B393B598F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0BF64EE-D957-4C80-A5FB-9B393B598F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0BF64EE-D957-4C80-A5FB-9B393B598F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD16BC09-2A5B-45F9-A58A-FC2BE4E229EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD16BC09-2A5B-45F9-A58A-FC2BE4E229EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD16BC09-2A5B-45F9-A58A-FC2BE4E229EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD16BC09-2A5B-45F9-A58A-FC2BE4E229EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13845A8E-18FA-41CA-AA89-1AFC06965F16}
+	EndGlobalSection
+EndGlobal

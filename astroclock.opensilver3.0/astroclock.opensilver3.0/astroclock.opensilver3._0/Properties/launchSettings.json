@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "astroclock.opensilver3._0": {
+      "commandName": "Executable",
+      "executablePath": "cmd",
+      "commandLineArgs": "/c start \"\" \"http://www.opensilver.net/permalinks/wrong_startup_project.aspx\""
+    }
+  }
+}
